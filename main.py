@@ -97,6 +97,7 @@ def retrieve_filter():
         # go back to the homescreen
         return redirect(url_for('retrieve_filter'))
     else:
+        # set the template for the homescreen
         return render_template('index.html', dropdown_items=dropdown_items)
             
 
