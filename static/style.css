@@ -1,3 +1,25 @@
+body {
+    background-color: #82e3a4;
+
+}
 h1 {
-    color: green;
+    position: relative;
+    top: 50px;
+    text-align: center;
+    color: #1DB954
+}
+
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    height: 100px;
+    width: 100px;
+    transform: translate(-50%, -50%);
+
+    border: 10px solid black;
+    background-color: red;
+    /*transform: translate(100px, 100px);*/
 }
