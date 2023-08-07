@@ -3,9 +3,12 @@
 <head>
     <title>Spotify Playlist Filter</title>
     <link rel="stylesheet" href="../static/style.css">
-</head>
+</head> 
 <body>
-    <h1>Spotify Playlist Filter</h1>
+    <div class="box">
+        <h1 class="website_title"> Spotify Playlist Filter</h1>
+    </div>
+    
     <form method="POST" action="{{ url_for('retrieve_filter') }}">
         <label for="dropdown">Select a playlist to filter:</label>
         <select id="dropdown" name="selected_playlist">
@@ -19,7 +22,6 @@
         <br>
         <input type="submit" name="select_button" value="Submit">
     </form>
-    
-    <div class="box"></div>
+
 </body>  
 </html>
