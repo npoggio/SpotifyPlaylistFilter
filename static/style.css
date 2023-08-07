@@ -40,6 +40,20 @@ body {
     margin-bottom: 15px;
 }
 
+.submit_button {
+    background-color: #82e3a4;
+
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 35px;
+
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+
+}
+
 
 
 

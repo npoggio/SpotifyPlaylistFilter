@@ -8,8 +8,7 @@
     <div class="box">
         <h1 class="website_title"> Spotify Playlist Filter</h1>
     </div>
-    <div class="prompt">
-        <form method="POST" action="{{ url_for('retrieve_filter') }}">
+        <form class="prompt" method="POST" action="{{ url_for('retrieve_filter') }}">
 
             <label for="dropdown">Select a playlist to filter:</label>
             <select class="selection" id="dropdown" name="selected_playlist">
@@ -17,15 +16,13 @@
                 <option value="{{ item }}">{{ item }}</option>
                 {% endfor %}
             </select>           
-                
-           
+                 
             <br>
                 <label for="text_input">Enter a genre to filter by:</label>
                 <input class="selection" type="text" id="text_input" name="selected_genre" required autocomplete="off">
             <br>
-            
-            <input type="submit" name="select_button" value="Submit">
+
+            <input class="submit_button" type="submit" name="select_button" value="Generate a playlist!">
         </form>
-    </div> 
 </body>  
 </html>
