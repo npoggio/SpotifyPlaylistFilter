@@ -4,7 +4,7 @@ import time
 from spotipy.oauth2 import SpotifyOAuth
 import array as arr
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 app.config['SESSION_COOKIE_NAME'] = 'Maximum Lore'
 app.config["SECRET_KEY"] = "a3sef983u2984"
@@ -97,6 +97,7 @@ def retrieve_filter():
         # go back to the homescreen
         return redirect(url_for('retrieve_filter'))
     else:
+        # set the template for the homescreen
         return render_template('index.html', dropdown_items=dropdown_items)
             
 
