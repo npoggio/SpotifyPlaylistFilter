@@ -1,5 +1,5 @@
 body {
-    background-color: #82e3a4;
+    background-color: #9debb8;
     font-family: "GothamMediumItalic", sans-serif;
 
 }
@@ -8,13 +8,39 @@ body {
     display: inline-block;
     padding: 10px;
     border: 3px solid #1DB954;
+    border-radius: 5px;
     position: relative;
 
     top: 50%;
-    left: 50%;
+    left: 50%;position: relative;
 
     transform: translate(-50%);
-    color: #1DB954
+    color: #1DB954;
+    background-color: #82e3a4;
 }
+
+.prompt {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+
+    padding: 10px;
+    border: 3px solid #1DB954;
+    border-radius: 5px;
+    
+    color: #1DB954;
+    background-color: #82e3a4;
+}
+
+.selection {
+    background-color: #82e3a4;
+    margin-bottom: 15px;
+}
+
+
+
 
   
