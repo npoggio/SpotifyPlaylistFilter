@@ -37,12 +37,11 @@ body {
 
 .selection {
     background-color: #82e3a4;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }
 
 .submit_button {
     background-color: #82e3a4;
-    transition: background-color 0.3s ease;
 
     border-radius: 10px;
     padding: 10px;
@@ -52,13 +51,9 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%);
-    
 
 }
 
-.submit_button:hover {
-    background-color: #2aa756;
-}
 
 
 
