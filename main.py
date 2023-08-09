@@ -102,7 +102,7 @@ def retrieve_filter():
             
 
 def get_token():
-    token_info = session.get(TOKEN_INFO, None)  
+    token_info = session.get(TOKEN_INFO, None)   
     if not token_info:
         redirect(url_for('login', _external=False))
     now = int(time.time())
@@ -117,7 +117,7 @@ def get_token():
 def create_spotify_oauth():
     return  SpotifyOAuth(
         client_id = "806bbd89333e439f8631cfd401c1c012",
-        client_secret = "dca6fb3ff3f948b6b757485849ebca35",
+        client_secret = "427f494d009743a2abac0f74dfd195bf",
         redirect_uri = url_for('redirectPage', _external=True),
         scope = "user-library-read playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private"
     )
