@@ -3,6 +3,7 @@ import spotipy
 import time
 from spotipy.oauth2 import SpotifyOAuth
 import array as arr
+import json
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -91,12 +92,14 @@ def retrieve_filter():
                     break
         
         data = display_added_tracks(trackURIs)
+        dataJSON = json.dumps(data)
+        print(dataJSON)
         # Adds all the songs that fit the genre into the new playlist
         sp.user_playlist_add_tracks(userID, newPlaylist['id'], trackURIs)
         
         # TODO If you refresh the page after generating the website it generates it again, fix this
         # go back to the homescreen
-        return render_template('index.html', dropdown_items=dropdown_items, data=data) #redirect(url_for('retrieve_filter'))
+        return render_template('index.html', dropdown_items=dropdown_items, data=dataJSON) #redirect(url_for('retrieve_filter'))
     else:
         # set the template for the homescreen
         return render_template('index.html', dropdown_items=dropdown_items)
@@ -114,7 +117,17 @@ def display_added_tracks(trackURIs):
     data = {}
     trackNum = 0
     for trackURI in trackURIs:  
-        data[trackNum] = sp.track(trackURI)['name']
+
+        # initialize variables for the specific track and a container for its display info
+        informationToDislay = []
+        track = sp.track(trackURI)
+
+        # add necessary info to container. This is the stuff that the user will see
+        informationToDislay.append(track['name'])
+        informationToDislay.append(track['album']['images'][0]['url'])
+        
+        # assign a dictionary key number to the track and its information  
+        data[trackNum] = informationToDislay
         trackNum += 1
 
     return data
