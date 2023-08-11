@@ -1,3 +1,4 @@
 function functionName() {
-	console.log("test");
+	//var jsonData = {{ data|tojson|safe }};
+	console.log("what is going on");
 }

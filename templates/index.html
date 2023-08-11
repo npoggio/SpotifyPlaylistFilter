@@ -24,10 +24,13 @@
             <input class="selection" type="text" id="text_input" name="selected_genre" required autocomplete="off">
         <br>
 
-        <input class="submit_button" type="submit" name="select_button" value="Generate a playlist!">
-    </form>
-
-    <button class="test" onclick="functionName()">hello</button>
+        <input class="submit_button" type="submit" name="select_button" value="Generate a playlist!" onclick="functionName()">
         
+    </form> 
+
+    <script>
+        var test = '{{ data }}';
+        console.log(test);
+    </script>
 </body>  
 </html>          

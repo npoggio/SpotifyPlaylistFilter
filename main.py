@@ -90,13 +90,13 @@ def retrieve_filter():
                     trackURIs.append(track['track']['uri'])
                     break
         
-        display_added_tracks(trackURIs)
-
+        data = display_added_tracks(trackURIs)
         # Adds all the songs that fit the genre into the new playlist
         sp.user_playlist_add_tracks(userID, newPlaylist['id'], trackURIs)
         
+        # TODO If you refresh the page after generating the website it generates it again, fix this
         # go back to the homescreen
-        return redirect(url_for('retrieve_filter'))
+        return render_template('index.html', dropdown_items=dropdown_items, data=data) #redirect(url_for('retrieve_filter'))
     else:
         # set the template for the homescreen
         return render_template('index.html', dropdown_items=dropdown_items)
@@ -111,12 +111,14 @@ def display_added_tracks(trackURIs):
     
     # create spotify client and get all user playlists
     sp = spotipy.Spotify(auth=token_info['access_token'])
+    data = {}
+    trackNum = 0
+    for trackURI in trackURIs:  
+        data[trackNum] = sp.track(trackURI)['name']
+        trackNum += 1
 
-    for trackURI in trackURIs:   
-        track = sp.track(trackURI)
-        print(track['preview_url'])
-    return None
-
+    return data
+ 
 
 def get_token():
     token_info = session.get(TOKEN_INFO, None)   
