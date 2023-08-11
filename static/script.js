@@ -1,4 +1,4 @@
-function functionName() {
-	//var jsonData = {{ data|tojson|safe }};
-	console.log("what is going on");
+function functionName(trackData) {
+
+	console.log(trackData);
 }

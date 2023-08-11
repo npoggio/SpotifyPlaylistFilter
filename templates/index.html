@@ -24,13 +24,14 @@
             <input class="selection" type="text" id="text_input" name="selected_genre" required autocomplete="off">
         <br>
 
-        <input class="submit_button" type="submit" name="select_button" value="Generate a playlist!" onclick="functionName()">
+        <input class="submit_button" type="submit" name="select_button" value="Generate a playlist!">
         
     </form> 
 
     <script>
-        var test = '{{ data }}';
-        console.log(test);
+        var trackData = '{{ data }}';
+        //console.log(trackData);
+        functionName(trackData);
     </script>
 </body>  
 </html>          
