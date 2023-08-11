@@ -62,8 +62,7 @@ def retrieve_filter():
     
         # get all tracks from the playlist
         playlist = sp.playlist_items(playlistID)
-        allTracks = []
-        song_uris = []
+        trackURIs = []
 
         # Create the new playlist          
         newPlaylist = sp.user_playlist_create(userID, selected_genre + " songs from " + selected_playlist , False, False, "Python generated playlist")
@@ -82,24 +81,42 @@ def retrieve_filter():
 
             # gets the genre list of the artists
             genres = artist['genres']
-            allTracks.append(track2['name'] + ": " + str(genres))
 
             # check if any of the listed genres for the song has the one we are searching for
             for genre in genres:
                 
                 # uses user input from html form to search by genre
                 if selected_genre in str(genre):
-                    song_uris.append(track['track']['uri'])
+                    trackURIs.append(track['track']['uri'])
                     break
-        # Adds all the songs that fit the genre into the new playlist
-        sp.user_playlist_add_tracks(userID, newPlaylist['id'], song_uris)
+        
+        display_added_tracks(trackURIs)
 
+        # Adds all the songs that fit the genre into the new playlist
+        sp.user_playlist_add_tracks(userID, newPlaylist['id'], trackURIs)
+        
         # go back to the homescreen
         return redirect(url_for('retrieve_filter'))
     else:
         # set the template for the homescreen
         return render_template('index.html', dropdown_items=dropdown_items)
             
+def display_added_tracks(trackURIs):
+
+    try:
+        token_info = session.get(TOKEN_INFO, None)
+    except:
+        print('User not logged in!')
+        return redirect('/')
+    
+    # create spotify client and get all user playlists
+    sp = spotipy.Spotify(auth=token_info['access_token'])
+
+    for trackURI in trackURIs:   
+        track = sp.track(trackURI)
+        print(track['preview_url'])
+    return None
+
 
 def get_token():
     token_info = session.get(TOKEN_INFO, None)   
