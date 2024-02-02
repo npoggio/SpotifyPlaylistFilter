@@ -1,17 +1,18 @@
 Overview
 =
-This Python project utilizes Flask and Spotify's API to create a web interface allowing users to filter their existing playlists based on genre and create new playlists. The application uses the SpotifyOAuth for authentication and playlist manipulation.
+- This Python project utilizes Flask and Spotify's API to create a web interface allowing users to filter their existing playlists based on genre and create new playlists. - 
+- The application uses the SpotifyOAuth for authentication and playlist manipulation.
 
 Setup
 =
-Clone the repository.
-If you would like, replace the client_id and client_secret in the create_spotify_oauth function with your own Spotify Developer credentials.
+- Clone the repository.
+- If you would like, replace the client_id and client_secret in the create_spotify_oauth function with your own Spotify Developer credentials.
 
 Usage
 =
-Navigate to the repository in your terminal.
-Create a virtual environment with the command .venv\Scripts\activate
-Set the FLASK_APP environmental variable by running the command set FLASK_APP=main.py
+- Navigate to the repository in your terminal.
+- Create a virtual environment with the command .venv\Scripts\activate
+- Set the FLASK_APP environmental variable by running the command `set FLASK_APP=main.py`
 Run flask main.py
 Open your browser and navigate to http://127.0.0.1:5000/.
 Log in with your Spotify credentials to authorize the application.
